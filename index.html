@@ -6,20 +6,16 @@
     <title>Landing Page</title>
 </head>
 <body>
-    <form id="autoSubmitForm" action="https://firecapital.activehosted.com/f/18?firstname=%FIRSTNAME%&lastname=%LASTNAME%&email=%EMAIL%&phone=%PHONE%" method="POST">
-        <input type="hidden" name="email" value="USER_EMAIL_HERE">
-        <input type="hidden" name="first_name" value="USER_NAME_HERE">
+    <form id="autoSubmitForm" action="https://youreventlink.addevent.com" method="POST">
+        <input type="hidden" name="first_name" value="USER_FIRST_NAME">
+        <input type="hidden" name="last_name" value="USER_LAST_NAME">
+        <input type="hidden" name="email" value="USER_EMAIL">
     </form>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Auto-submit the form
             document.getElementById("autoSubmitForm").submit();
-            
-            // Redirect after 2 seconds to AddEvent
-            setTimeout(function() {
-                window.location.href = "https://evt.to/euduiadow";  // Replace with your AddEvent URL
-            }, 2000); // 2-second delay after form submission
         });
     </script>
 </body>
