@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registering...</title>
+</head>
+<body>
+    <p>Registering you for the event...</p>
+
+    <form id="autoSubmitForm" action="https://firecapital.activehosted.com/f/18?email=%EMAIL%&first_name=%FIRSTNAME%&last_name=%LASTNAME%" method="POST">
+        <input type="hidden" name="email" value="USER_EMAIL">
+        <input type="hidden" name="first_name" value="USER_NAME">
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("autoSubmitForm").submit();
+            setTimeout(function() {
+                window.location.href = "https://evt.to/euduiadow"; 
+            }, 2000); // Redirect after 2 seconds
+        });
+    </script>
+</body>
+</html>
