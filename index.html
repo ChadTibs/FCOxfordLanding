@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-</head>
-<body>
-    <form id="autoSubmitForm" action="https://evt.to/euduiadow" method="POST">
-        <input type="hidden" name="first_name" value="USER_FIRST_NAME">
-        <input type="hidden" name="last_name" value="USER_LAST_NAME">
-        <input type="hidden" name="email" value="USER_EMAIL">
-    </form>
-
+    <title>Registering for the Webinar...</title>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Auto-submit the form
-            document.getElementById("autoSubmitForm").submit();
+            const urlParams = new URLSearchParams(window.location.search);
+            const firstName = urlParams.get("first_name");
+            const lastName = urlParams.get("last_name");
+            const email = urlParams.get("email");
+            const registered = urlParams.get("registered"); // Check if coming back from Zoom
+
+            if (registered) {
+                // If "registered" param exists, redirect to AddEvent
+                window.location.href = "https://www.addevent.com/event/kf24845186";
+            } else if (firstName && lastName && email) {
+                // Construct the Zoom registration URL
+                const zoomRegistrationURL = `https://us06web.zoom.us/webinar/register/WN_83265691275?first_name=${encodeURIComponent(firstName)}&last_name=${encodeURIComponent(lastName)}&email=${encodeURIComponent(email)}&redirect_uri=${encodeURIComponent(window.location.href + "&registered=true")}`;
+
+                // Redirect to Zoom registration
+                window.location.href = zoomRegistrationURL;
+            } else {
+                console.error("Missing user details");
+            }
         });
     </script>
+</head>
+<body>
+    <h1>Registering for the webinar...</h1>
 </body>
 </html>
